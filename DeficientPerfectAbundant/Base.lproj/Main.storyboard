@@ -40,11 +40,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="Check!"/>
+                                <connections>
+                                    <action selector="check:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rUY-wJ-Qt9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.85197269976561429" green="1" blue="0.99513515932579488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="errorMessage" destination="CgM-sE-3Uo" id="AfN-A6-02h"/>
+                        <outlet property="input" destination="KQU-l8-76B" id="9Ke-wc-tBR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
