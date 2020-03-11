@@ -28,11 +28,13 @@ class ViewController: UIViewController {
             return
         }
         guard let numberInput = Int(inputAsString) else {
+            output.text = ""
             errorMessage.text = "Please enter an integer"
             return
         }
         
         guard numberInput > 1, numberInput < 32500 else {
+            output.text = ""
             errorMessage.text = "Enter a number between 1 and 32500"
             return
         }
@@ -41,14 +43,14 @@ class ViewController: UIViewController {
         func sumOfAllDivisors(number: Int) -> Int{
             
             var sum = 0
-            for m in stride(from: 1, to: Int(sqrt(Double(number))), by: 1){
+            for m in stride(from: 1, to: Int(sqrt(Double(number))) + 1, by: 1){
                 
                 if number % m == 0 {
                     sum += m
                     sum += number/m
                     
                 }
-                if number/m == m {
+                if number / m == m && number % m == 0 {
                     sum -= m
              
                 }
