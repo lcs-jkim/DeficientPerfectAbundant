@@ -62,6 +62,8 @@ class ViewController: UIViewController {
             
         }
         
+        errorMessage.text = ""
+        
         if numberInput == 1 {
             output.text = "\(numberInput) is a deficient number."
         }
