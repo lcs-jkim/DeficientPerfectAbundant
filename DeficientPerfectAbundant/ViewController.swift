@@ -33,7 +33,7 @@ class ViewController: UIViewController {
             return
         }
         
-        guard numberInput > 1, numberInput < 32500 else {
+        guard numberInput >= 1, numberInput < 32500 else {
             output.text = ""
             errorMessage.text = "Enter a number between 1 and 32500"
             return
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
                 }
                 if number / m == m && number % m == 0 {
                     sum -= m
-             
+                    
                 }
                 
             }
@@ -61,8 +61,17 @@ class ViewController: UIViewController {
             return sum
             
         }
-        output.text = "\(sumOfAllDivisors(number: numberInput))"
         
+        if numberInput == 1 {
+            output.text = "\(numberInput) is a deficient number."
+        }
+        else if sumOfAllDivisors(number: numberInput) > numberInput {
+            output.text = "\(numberInput) is an abundant number."
+        } else if sumOfAllDivisors(number: numberInput) == numberInput {
+            output.text = "\(numberInput) is a perfect number."
+        } else if sumOfAllDivisors(number: numberInput) < numberInput {
+            output.text = "\(numberInput) is a deficient number."
+        }
     }
     
 }
