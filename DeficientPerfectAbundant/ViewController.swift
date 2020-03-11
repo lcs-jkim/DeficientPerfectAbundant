@@ -13,12 +13,14 @@ class ViewController: UIViewController {
     // Properties
     @IBOutlet weak var errorMessage: UILabel!
     @IBOutlet weak var input: UITextField!
+    @IBOutlet weak var output: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         // Clear error message
         errorMessage.text = ""
+        output.text = ""
     }
     
     @IBAction func check(_ sender: Any) {
@@ -36,19 +38,28 @@ class ViewController: UIViewController {
         }
         
         
-        func sumOfAllDivisors(number: Int){
+        func sumOfAllDivisors(number: Int) -> Int{
             
             var sum = 0
             for m in stride(from: 1, to: Int(sqrt(Double(number))), by: 1){
                 
                 if number % m == 0 {
                     sum += m
-                    sum += number % m
-                
+                    sum += number/m
+                    
                 }
+                if number/m == m {
+                    sum -= m
+             
+                }
+                
             }
             
+            sum -= number
+            return sum
+            
         }
+        output.text = "\(sumOfAllDivisors(number: numberInput))"
         
     }
     
